@@ -25,20 +25,18 @@ public class PassingCars {
         }
         ArrayList<Integer> sums = new ArrayList<Integer>();
         int currentSum = 0;
+        int finalSum = 0;
         for (int i = N - 1; i > -1; i--) {
             if (A[i] == 1) {
                 currentSum++;
             } else {
-                sums.add(currentSum);
+                finalSum += currentSum;
+                if (finalSum > 1000000000) {
+                    return -1;
+                }
             }
         }
-        int finalSum = 0;
-        for (Integer i : sums) {
-            finalSum += i;
-            if (finalSum > 1000000000) {
-                return -1;
-            }
-        }
+
         return finalSum;
     }
 }
